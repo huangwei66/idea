@@ -26,7 +26,6 @@ public class Main {
         System.out.println(m.sum(a, b));
     }
 
-
     public static void main(String[] args) {
     *//*  //例子1: 匿名内部类
         print(new MyMath() {
@@ -52,11 +51,6 @@ public class Main {
         t.start();*//*
     }
 */
-/**
- *
- */
-
-
 
     /**线程池  :容纳多个线程的容器,池中的线程可以多次使用
      * 创建线程过程:
@@ -66,7 +60,6 @@ public class Main {
      * 4. 关闭线程(耗时多)
      *   比如线程池有1234  出现任务123456,线程池会以1234的顺序使用,如果123正在用,4闲,来了4任务,刚好1线程开始空闲,会使用1不会用4线程
      */
-
 
     /**
      * 带返回值的线程-----Callable(第三种线程实现方法)
@@ -114,7 +107,6 @@ public class Main {
     }
 */
 
-
 /**  线程六大状态
  * NEW
  尚未启动的线程处于此状态。
@@ -130,7 +122,6 @@ public class Main {
  已退出的线程处于此状态。
  */
 
-
     /**
      * 多线程通信问题
      * API Object类  notify()与wait() 唤醒方法与等待方法
@@ -141,14 +132,12 @@ public class Main {
         new Cook(f).start();
         new Waiter(f).start();
     }
-
     //厨师
     static class Cook extends Thread{
         private Food f;
         public Cook(Food f) {
             this.f = f;
         }
-
         @Override
         public void run() {
             for(int i=0;i<100;i++){
@@ -182,10 +171,8 @@ public class Main {
     static class Food{
         private String name;
         private String taste;
-
         //true 表示可以生产
         private boolean flag = true;
-
         public synchronized void setNameAndSaste(String name,String taste){
             if(flag) {
                 this.name = name;
@@ -217,8 +204,6 @@ public class Main {
             }
         }
     }*/
-
-
     /**
      * 线程死锁
      * a,b分别去俩试衣间,a突然想去b试衣间,b也突然想去a试衣间,互相卡着就是死锁
@@ -230,24 +215,20 @@ public class Main {
             System.out.println("你放我我放人质");
             p.fun();
         }
-
         public synchronized void fun() {
             System.out.println("罪犯放了,人质也放了");
         }
     }
-
     //警察
     static class Police {
         public synchronized void say(Culprit c) {
             System.out.println("你放人质我放你");
             c.fun();
         }
-
         public synchronized void fun() {
             System.out.println("罪犯跑了,人质救了");
         }
     }
-
     public static void main(String[] args) {
         Culprit culprit = new Culprit();
         Police police = new Police();
@@ -258,19 +239,16 @@ public class Main {
     static class MyThread extends Thread {
         private Culprit c;
         private Police p;
-
         public MyThread(Culprit c, Police p) {
             this.c = c;
             this.p = p;
         }
-
         @Override
         public void run() {
             p.say(c);
         }
     }
 */
-
     /**
      * 公平锁与非公平锁
      * 公平锁: 排队,先来先到,比如线程1先到,之后的票不会出现其他线程
@@ -283,7 +261,6 @@ public class Main {
         new Thread(run).start();
         new Thread(run).start();
     }
-
     static class Ticket implements Runnable {
         private int count = 10;
         private Object object = new Object();
@@ -311,8 +288,6 @@ public class Main {
         }
     }
 */
-
-
     /**
      * 显示锁Lock
      * 同步代码块同步方法是隐式锁,显示锁比隐式锁更方便更像锁
@@ -324,7 +299,6 @@ public class Main {
         new Thread(run).start();
         new Thread(run).start();
     }
-
     static class Ticket implements Runnable {
         private int count = 10;
         private Object object = new Object();
@@ -350,8 +324,6 @@ public class Main {
             l.unlock();
         }
     }*/
-
-
     /**线程不安全
      * 解决方法二: 同步方法 如下面 sale,如果没有静态修饰锁就是this,如果有修饰static锁就是类名.class,如Ticket
      注意看锁对象
@@ -390,8 +362,6 @@ public class Main {
             return false;
         }
     }*/
-
-
     /**
      * 解决线程不安全
      * 方法一: 线程同步:同步代码块 synchronized(锁对象){}
@@ -429,8 +399,6 @@ public class Main {
         }
     }
 */
-
-
     /**线程不安全
      * 多个线程调用一个变量
      *在本例子卖票出现负数,判定添加就是大于0,出现不合逻辑情况,就是线程不安全,
@@ -460,11 +428,10 @@ public class Main {
     }
 */
 
-
 /**
  * 通过加标记来实现线程固定时间中断
- *//*
-// 线程中断
+ */
+ /*线程中断
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(new MyRunnable());
         t1.start();
@@ -477,14 +444,10 @@ public class Main {
             }
         }
         t1.interrupt();                       //加标记
-
     }
-
-
     static class MyRunnable implements Runnable {
         @Override
         public void run() {
-
             for (int i = 0; i < 7; i++) {
                 System.out.println("任务" + i);
                 try {
@@ -495,7 +458,6 @@ public class Main {
                     return;   //使该线程死亡
                 }
             }
-
         }
     }*/
 }
