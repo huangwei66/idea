@@ -7,5 +7,7 @@ public class Main {
         System.out.println("也请金额");
         System.out.println("西瓯宁县");
         System.out.println("西瓯宁县");
+          System.out.println("西瓯宁县");
+        System.out.println("西瓯宁县");
     }
 }
