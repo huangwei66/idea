@@ -21,7 +21,7 @@ public class Demo1 {
         //           主协议:子协议://ip地址:端口号/数据库名称
         //           mysql:     jdbc:mysql://localhost:3306/test
         //           oracle:    jdbc:oracle:thin:@ip地址:1521/ORCL
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "123");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gangan", "root", "");
         //3.    通过连接对象,创建SQL执行对象 (SQL执行环境)
         Statement state = conn.createStatement();
         //4.    通过SQL执行对象 执行SQL
@@ -33,7 +33,7 @@ public class Demo1 {
 
     public static void insertData() throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8", "root", "123");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gangan?useUnicode=true&characterEncoding=utf-8", "root", "");
         Statement state = conn.createStatement();
         state.execute("insert into person values(1,'张三')");
         state.close();
