@@ -3,10 +3,11 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/com/home/express" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gangan/src/com/home/database" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="JDBCDemo" level="project" />
   </component>
 </module>
